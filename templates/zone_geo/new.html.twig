@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}New ZoneGeo{% endblock %}
+
+{% block body %}
+    <h1>Create new ZoneGeo</h1>
+
+    {{ include('zone_geo/_form.html.twig') }}
+
+    <a href="{{ path('zone_geo_index') }}">back to list</a>
+{% endblock %}
