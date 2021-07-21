@@ -1,6 +1,45 @@
-.navbar .bg-light{
-    background-color: blue;
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap");
+
+/**** QUICK RESET ***/
+html,
+body {
+  font-family: "Poppins", "Sans-Serif", "Arial";
 }
-.btn-primary{
-    background-color: #8CBDB9;
+
+/*********HEADER*********/
+header {
+  background-color: #f2f2f2;
+}
+/* navbar */
+.bg-light {
+  background-color: white !important;
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+.btn-primary {
+  background-color: #8cbdb9;
+  border: none;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: #f27b3f;
+  box-shadow: none;
+}
+.btn .me-2 {
+  box-shadow: #f27b3f;
+}
+.btn-outline-success {
+  color: #24a695;
+  border-color: #8cbdb9;
+}
+
+.btn-outline-success:hover,
+.btn-outline-success:focus,
+.btn-outline-success:active {
+  background-color: #8cbdb9;
+  box-shadow: none;
+}
+/* carousel */
+.carousel-inner > .item {
+  height: 400px;
 }
