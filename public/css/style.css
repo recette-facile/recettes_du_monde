@@ -1,0 +1,94 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap");
+
+/**** QUICK RESET ***/
+html,
+body {
+  font-family: "Poppins", "Sans-Serif", "Arial";
+}
+
+/*********HEADER*********/
+header {
+  background-color: #e4d1cb;
+}
+/* navbar */
+.navbar {
+  height: 109px;
+}
+nav.navbar.navbar-expand-lg.navbar-light.bg-light {
+  box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
+  background-color: #e6b7a7!important;
+}
+.navbar-light .navbar-brand {
+  color: #962500;
+  font-size: 1.5rem;
+  padding-left: 15px;;
+}
+a.navbar-brand,
+.navbar-expand-lg .navbar-nav {
+  font-weight: 600;
+  text-transform: uppercase;
+}
+
+.navbar-light .navbar-nav .nav-linklight {
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+.btn-primary {
+  background-color: #962500;
+  border: none;
+}
+.btn-primary:hover,
+.btn-primary:focus,
+.btn-primary:active {
+  background-color: #db7958;
+  box-shadow: none;
+}
+.btn .me-2 {
+  box-shadow: #962500;
+}
+.btn-outline-success {
+  color: #962500;
+  border-color: #e6b7a7;
+}
+
+.btn-outline-success:hover,
+.btn-outline-success:focus,
+.btn-outline-success:active {
+  background-color: #e6b7a7;
+  box-shadow: none;
+}
+/* carousel */
+.carousel-inner > .item {
+  height: 400px;
+}
+
+/*********FOOTER*********/
+.bg-white {
+  background-color: #e6b7a7 !important;
+}
+.text-footer {
+  text-decoration: none;
+  color:#962500;
+}
+footer .text-uppercase {
+  font-weight: 700;
+  color:#962500;
+ 
+}
+.logo-footer{
+  color: #962500;
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+.bg-light.py-2{
+  background-color: #e6b7a7c2 !important;
+  color: #962500;
+  font-style: italic;
+}
+footer .fab, .far{
+  font-size: 2.3rem;
+  color:#962500;
+}
+footer .list-inline-item{
+  padding: 0 10px 0 10px;
+}
