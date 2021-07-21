@@ -11,8 +11,21 @@ header {
   background-color: #f2f2f2;
 }
 /* navbar */
-.bg-light {
-  background-color: white !important;
+.navbar{
+  height: 109px;
+}
+.navbar-light .navbar-brand {
+  color: #962500;
+}
+a.navbar-brand{
+  font-weight: 600;
+  text-transform: uppercase
+}
+.navbar-expand-lg .navbar-nav{
+  text-transform: uppercase;
+  font-weight: 600;
+}
+.navbar-light .navbar-nav .nav-linklight {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
 .btn-primary {
@@ -22,11 +35,11 @@ header {
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active {
-  background-color: #f27b3f;
+  background-color: #962500;
   box-shadow: none;
 }
 .btn .me-2 {
-  box-shadow: #f27b3f;
+  box-shadow: #962500;
 }
 .btn-outline-success {
   color: #24a695;
