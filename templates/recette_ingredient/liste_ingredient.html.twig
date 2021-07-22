@@ -22,7 +22,7 @@
                 <td>{{ recette_ingredient.ingredient.nomIngredient }}</td>
                 <td>
                     <a href="{{ path('recette_ingredient_show', {'id': recette_ingredient.id}) }}">Voir plus</a>
-                    <a href="{{ path('recette_ingredient_edit', {'id': recette_ingredient.id}) }}">Mettre à jour</a> 
+                    <a href="{{ path('recette_ingredient_edit', {'recette_ingredient': recette_ingredient.id, 'recette':recette.id}) }}">Mettre à jour</a> 
                 </td>
             </tr>
         {% else %}
