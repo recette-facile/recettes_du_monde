@@ -4,11 +4,15 @@ namespace App\Controller;
 
 use App\Entity\Recette;
 use App\Form\RecetteType;
+use App\Entity\Ingredient;
+use App\Entity\RecetteIngredient;
 use App\Repository\RecetteRepository;
-use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
+use App\Repository\IngredientRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use App\Repository\RecetteIngredientRepository;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
  * @Route("/recette")
@@ -20,11 +24,15 @@ class RecetteController extends AbstractController
     /**
      * @Route("/", name="recette_index", methods={"GET"})
      */
-    public function index(RecetteRepository $recetteRepository): Response
+    public function index( RecetteRepository $recetteRepository, RecetteIngredientRepository $recetteIngredientRepository,IngredientRepository $IngredientRepository /*, int $id*/): Response
     {
+       // $ingredient = $IngredientRepository->find($id);
+       
         return $this->render('recette/index.html.twig', [
             'recettes' => $recetteRepository->findAll(),
+            //'recette_ingredient' => $recetteIngredientRepository->find($id),
         ]);
+        ////?perdu le fil 
     }
 
     /**
@@ -53,18 +61,25 @@ class RecetteController extends AbstractController
     /**
      * @Route("/{id}", name="recette_show", methods={"GET"})
      */
-    public function show(Recette $recette): Response
+    public function show(Recette $recette, RecetteIngredientRepository $recetteIngredientRepository): Response
     {
+        $ingredients = $recetteIngredientRepository->findBy([
+            'recette' => $recette,
+        ]);
         return $this->render('recette/show.html.twig', [
             'recette' => $recette,
+            'ingredients' => $ingredients,
         ]);
     }
 
     /**
      * @Route("/{id}/edit", name="recette_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Recette $recette): Response
+    public function edit(Request $request, Recette $recette,RecetteIngredientRepository $recetteIngredientRepository): Response
     {
+        $ingredients = $recetteIngredientRepository->findBy([
+            'recette' => $recette,
+        ]);
         $form = $this->createForm(RecetteType::class, $recette);
         $form->handleRequest($request);
 
@@ -77,6 +92,7 @@ class RecetteController extends AbstractController
         return $this->renderForm('recette/edit.html.twig', [
             'recette' => $recette,
             'form' => $form,
+            'ingredients' => $ingredients
         ]);
     }
 

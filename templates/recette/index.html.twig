@@ -22,10 +22,10 @@
             <tr>
                 <td>{{ recette.nomRecette }}</td>
                 <td>{{ recette.zoneGeo.nom }}</td>
-                <td>{{ recette.nomRecette }}</td>
+               
                 <td>{{ recette.tempsPreparation }}</td>
                 <td>{{ recette.tempsCuisson }}</td>
-                <td>{{ recette.descriptionRecette }}</td>
+                <td>{{ recette.descriptionRecette|slice(0,200) }}...</td>
                 <td>
                     <a href="{{ path('recette_show', {'id': recette.id}) }}">Consulter</a>
                     <a href="{{ path('recette_edit', {'id': recette.id}) }}">Modifier</a>

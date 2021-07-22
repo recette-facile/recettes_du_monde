@@ -26,6 +26,24 @@
             </tr>
         </tbody>
     </table>
+     <table class="table">
+        <thead>
+            <tr>
+                <th>Ingredient</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for ingredient in ingredients %}
+            <tr>
+                <td>{{ ingredient.ingredient.nomIngredient }}</td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="2">Liste vide</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
 
     <a href="{{ path('recette_index') }}">Nos recettes</a>
 
