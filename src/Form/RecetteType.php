@@ -2,8 +2,11 @@
 
 namespace App\Form;
 
+
 use App\Entity\Recette;
 use App\Entity\ZoneGeo;
+use App\Form\RecetteType;
+use App\Entity\RecetteIngredient;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
@@ -24,6 +27,11 @@ class RecetteType extends AbstractType
                 'choice_label' => 'nom',
                 'class' => ZoneGeo::class
             ])
+            //->add('nomIngredient', EntityType::class,[
+            //    
+            //    "choice_label" =>"ingredient",
+            //    "class" =>RecetteIngredient::class,
+            //])
         ;
     }
 
@@ -31,6 +39,7 @@ class RecetteType extends AbstractType
     {
         $resolver->setDefaults([
             'data_class' => Recette::class,
+            
         ]);
     }
 }
