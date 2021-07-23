@@ -10,7 +10,9 @@ use App\Entity\RecetteIngredient;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Bridge\Doctrine\Form\Type\EntityType;
+use Symfony\Component\Validator\Constraints\File;
 use Symfony\Component\OptionsResolver\OptionsResolver;
+use Symfony\Component\Form\Extension\Core\Type\FileType;
 
 class RecetteType extends AbstractType
 {
@@ -26,6 +28,27 @@ class RecetteType extends AbstractType
                 'placeholder' => '-- choisir une zone géographique  --',
                 'choice_label' => 'nom',
                 'class' => ZoneGeo::class
+            ])
+            ->add('image', FileType::class, [
+                'mapped' => false,
+                'required' => true,
+                'multiple' => false,
+                'label' => "uploader votre image",
+                'attr' => [
+                    'placeholder' => "parcourir pour trouver l'image"
+                ],
+                'constraints' => [
+                    new File([
+                        'maxSize' => '2048K',
+                        'mimeTypes' => [
+                            'image/png',
+                            'image/jpg',
+                            'image/jpeg',
+                            'image/gif'
+                        ],
+                        'mimeTypesMessage' => "Veuillez télecharger un fichier jpeg"
+                    ])
+                ]
             ])
             //->add('nomIngredient', EntityType::class,[
             //    
