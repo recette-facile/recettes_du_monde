@@ -3,13 +3,15 @@
 {% block title %}Recette Ingredient {% endblock %}
 
 {% block body %}
-    <h1>Recette Ingredient </h1>
+     <h1>Recette</h1>
+        {# {% for recette_ingredient in recette_ingredients %} #}
+        <h2>{{ recette.nomRecette }}</h2>
+        {# {% endfor %} #}
 
     <table class="table">
         <thead>
             <tr>
                 <th>Id</th>
-                <th>Recette</th>
                 <th>Ingredient</th>
                 <th>actions</th>
             </tr>
@@ -18,10 +20,8 @@
         {% for recette_ingredient in recette_ingredients %}
             <tr>
                 <td>{{ recette_ingredient.id }}</td>
-                <td>{{ recette_ingredient.recette.nomRecette }}</td>
                 <td>{{ recette_ingredient.ingredient.nomIngredient }}</td>
                 <td>
-                    <a href="{{ path('recette_ingredient_show', {'id': recette_ingredient.id}) }}">Voir plus</a>
                     <a href="{{ path('recette_ingredient_edit', {'recette_ingredient': recette_ingredient.id, 'recette':recette.id}) }}">Mettre à jour</a> 
                 </td>
             </tr>
