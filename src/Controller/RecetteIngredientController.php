@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Recette;
 use App\Entity\RecetteIngredient;
 use App\Form\RecetteIngredientType;
+use App\Repository\RecetteRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Repository\RecetteIngredientRepository;
@@ -36,7 +37,8 @@ class RecetteIngredientController extends AbstractController
             'recette' => $recette
         ]);
         return $this->render('recette_ingredient/liste_ingredient.html.twig', [
-            'recette_ingredients' => $recettes
+            'recette_ingredients' => $recettes,
+            'recette' => $recette
         ]);
     }
 
@@ -57,7 +59,7 @@ class RecetteIngredientController extends AbstractController
             $entityManager->flush();
 
             return $this->redirectToRoute('recette_ingredient_liste_ingredients', [
-                'recette' => $recette->getId(),
+                'recette' => $recette->getId()
 
             ], Response::HTTP_SEE_OTHER);
         }
@@ -73,15 +75,18 @@ class RecetteIngredientController extends AbstractController
      */
     public function show(RecetteIngredient $recetteIngredient): Response
     {
+        
         return $this->render('recette_ingredient/show.html.twig', [
             'recette_ingredient' => $recetteIngredient,
         ]);
+
+        
     }
 
-    /**
-     * @Route("/{id}/edit", name="recette_ingredient_edit", methods={"GET","POST"})
+          /**
+     * @Route("/{recette_ingredient}/edit/{recette}", name="recette_ingredient_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, RecetteIngredient $recetteIngredient): Response
+    public function edit(Recette $recette, Request $request, RecetteIngredient $recetteIngredient): Response
     {
         $form = $this->createForm(RecetteIngredientType::class, $recetteIngredient);
         $form->handleRequest($request);
@@ -89,19 +94,22 @@ class RecetteIngredientController extends AbstractController
         if ($form->isSubmitted() && $form->isValid()) {
             $this->getDoctrine()->getManager()->flush();
 
-            return $this->redirectToRoute('recette_ingredient_index', [], Response::HTTP_SEE_OTHER);
+            return $this->redirectToRoute('recette_ingredient_liste_ingredients', ['recette' => $recette->getId()], Response::HTTP_SEE_OTHER);
+             
+            
         }
 
         return $this->renderForm('recette_ingredient/edit.html.twig', [
             'recette_ingredient' => $recetteIngredient,
+            'recette' => $recette ,
             'form' => $form,
         ]);
     }
 
     /**
-     * @Route("/{id}/supprimer", name="recette_ingredient_delete", methods={"POST"})
+     * @Route("/{recette_ingredient}/supprimer/{recette}", name="recette_ingredient_delete", methods={"POST"})
      */
-    public function delete(Request $request, RecetteIngredient $recetteIngredient): Response
+    public function delete(Recette $recette, Request $request, RecetteIngredient $recetteIngredient): Response
     {
         if ($this->isCsrfTokenValid('delete'.$recetteIngredient->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
@@ -109,6 +117,6 @@ class RecetteIngredientController extends AbstractController
             $entityManager->flush();
         }
 
-        return $this->redirectToRoute('recette_ingredient_index', [], Response::HTTP_SEE_OTHER);
+        return $this->redirectToRoute('recette_ingredient_liste_ingredients', ['recette' => $recette->getId()], Response::HTTP_SEE_OTHER);
     }
 }

@@ -7,7 +7,7 @@
 
     {{ include('recette_ingredient/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
 
-    <a href="{{ path('recette_ingredient_index') }}">Retour à la liste</a>
+    <a href="{{ path('recette_ingredient_liste_ingredients', {'recette_ingredient': recette_ingredient.id, 'recette':recette.id}) }}">Retour à la liste</a>
 
     {{ include('recette_ingredient/_delete_form.html.twig') }}
 {% endblock %}

@@ -16,14 +16,14 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
- * @Route("/recette")
+ * @Route("/admin/recette")
  */
 class RecetteController extends AbstractController
 {
     
 
     /**
-     * @Route("/", name="recette_index", methods={"GET"})
+     * @Route("/liste", name="recette_index", methods={"GET"})
      */
     public function index( RecetteRepository $recetteRepository, RecetteIngredientRepository $recetteIngredientRepository,IngredientRepository $IngredientRepository /*, int $id*/): Response
     {
