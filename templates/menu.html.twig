@@ -8,9 +8,11 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
+
 				<li class="nav-item">
 					<a class="nav-link" href="{{ path('home')}}">Accueil</a>
 				</li>
+				{# Mettre la redirection de l'utilisateur connecté  #}
 				<li class="nav-item">
 					<a class="nav-link" href="#">Nos recettes</a>
 				</li>
@@ -39,11 +41,19 @@
 			<div class="col-md-3 text-end">
 
 				<button type="button" class="btn connexion me-2">
-					<a href="#"></a>Connexion</button>
+					<a href="{{ path("app_login") }}">
+					<i class="fa fa-sign-in-alt ">Connexion</i>
+					</a>
+					</button>
+					
 
 
 				<button type="button" class="btn btn-primary">
 					<a href="#"></a>S'inscrire</button>
+
+					{# <a class="nav-link" href="{{ path("app_register") }}">
+            <i class="fa fa-door-open    "></i> Inscription
+          </a> #}
 
 			</div>
 
