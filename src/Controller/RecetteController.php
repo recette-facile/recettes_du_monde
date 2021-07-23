@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use App\Repository\RecetteIngredientRepository;
 use Symfony\Component\Routing\Annotation\Route;
+use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
@@ -38,14 +39,26 @@ class RecetteController extends AbstractController
     /**
      * @Route("/new", name="recette_new", methods={"GET","POST"})
      */
-    public function new(Request $request): Response
+    public function new(Request $request, SluggerInterface $slugger): Response
     {
         $recette = new Recette();
         $form = $this->createForm(RecetteType::class, $recette);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+            $imagesDirectory = "img/uploads/";
             $entityManager = $this->getDoctrine()->getManager();
+            $imageFile = $form->get('image')->getData();
+            if ($imageFile) {
+                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFileName = $slugger->slug($originalFilename);
+                $finalFilename = $safeFileName . '-' . uniqid() . '.' . $imageFile->guessExtension();
+                $imageFile->move($imagesDirectory, $finalFilename);
+                // petite astuce pour éviter d'avoir à modifier les vues
+                $fichierCheminComplet = "$imagesDirectory$finalFilename";
+                $recette->setImage($fichierCheminComplet);
+
+            }
             $entityManager->persist($recette);
             $entityManager->flush();
 
