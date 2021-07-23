@@ -167,7 +167,7 @@ class User implements UserInterface, PasswordAuthenticatedUserInterface
     {
         return $this->email;
     }
-
+// c'est à partir de là qu'il y a eu des ajouts
     public function setEmail(?string $email): self
     {
         $this->email = $email;
