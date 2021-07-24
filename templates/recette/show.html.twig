@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Recette{% endblock %}
+
+{% block body %}
+   <div class="container">
+<div class="card-deck">
+{% for recette in recette %}
+  <div class="card">
+    <img src="https://www.wupisi.com/wp-content/uploads/2021/03/Plat_Kuskumas_avec_Sauce-1024x1024.jpg" alt="couscouma">
+    <div class="card-body">
+      <h5 class="card-title">{{ recette.nomRecette }}</h5>
+      <p class="card-text">{{ recette.descriptionRecette|slice(0,160) }} ...</p>
+    </div>
+    <div class="card-footer">
+      <small class="text-muted">>{{recette.zoneGeo.nom}}</small>
+    </div>
+  </div>
+  </div>
+</div>
+{% else %}
+            <tr>
+                <td colspan="6">Aucun enregistrement trouvé</td>
+            </tr>
+{% endfor %}
+          </div> 
+      </div>  
+    </div>
+  </div>
+  </div>
+     
+      <a href="{{ path('recette_new') }}">Créer une nouvelle recette</a>
+{% endblock %}

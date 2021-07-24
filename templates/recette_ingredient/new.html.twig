@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Ajout d'un Ingredient à une recette{% endblock %}
+
+{% block body %}
+    <h1>Ajout d'un Ingredient à une recette</h1>
+
+    {{ include('recette_ingredient/_form.html.twig') }}
+
+    <a href="{{ path('recette_ingredient_index') }}">Retour à la liste</a>
+{% endblock %}

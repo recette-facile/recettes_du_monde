@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\RecetteRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
@@ -42,6 +44,12 @@ class Recette
      * @ORM\JoinColumn(nullable=false)
      */
     private $zoneGeo;
+
+    /**
+     * @ORM\Column(type="string", length=250, nullable=true)
+     */
+    private $image;
+
 
     public function getId(): ?int
     {
@@ -107,4 +115,20 @@ class Recette
 
         return $this;
     }
+
+    public function getImage(): ?string
+    {
+        return $this->image;
+    }
+
+    public function setImage(?string $image): self
+    {
+        $this->image = $image;
+
+        return $this;
+    }
+
+    
+
+    
 }
