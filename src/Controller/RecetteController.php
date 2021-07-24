@@ -33,19 +33,20 @@ class RecetteController extends AbstractController
             'recettes' => $recetteRepository->findAll(),
             //'recette_ingredient' => $recetteIngredientRepository->find($id),
         ]);
-        
-    }
+            }
 
     /**
      * @Route("/new", name="recette_new", methods={"GET","POST"})
      */
     public function new(Request $request, SluggerInterface $slugger): Response
+
     {
         $recette = new Recette();
         $form = $this->createForm(RecetteType::class, $recette);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
+
             $imagesDirectory = "img/uploads/";
             $entityManager = $this->getDoctrine()->getManager();
             $imageFile = $form->get('image')->getData();
