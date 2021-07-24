@@ -2,13 +2,13 @@
 
 namespace App\Entity;
 
-use App\Repository\RecetteFavoriRepository;
+use App\Repository\FavoriRepository;
 use Doctrine\ORM\Mapping as ORM;
 
 /**
- * @ORM\Entity(repositoryClass=RecetteFavoriRepository::class)
+ * @ORM\Entity(repositoryClass=FavoriRepository::class)
  */
-class RecetteFavori
+class Favori
 {
     /**
      * @ORM\Id

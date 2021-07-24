@@ -33,7 +33,7 @@ class RecetteController extends AbstractController
             'recettes' => $recetteRepository->findAll(),
             //'recette_ingredient' => $recetteIngredientRepository->find($id),
         ]);
-        ////?perdu le fil 
+        
     }
 
     /**
