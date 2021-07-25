@@ -7,11 +7,18 @@
 <div class="card-deck">
 
   <div class="card">
+
+    <img src="../{{recette.image}}" alt="photo de {{recette.nomRecette}}">
+    <div class="card-footer">
+      <small class="text-muted">>{{recette.zoneGeo.nom}}</small>
+    </div>
+
     <img src="../{{recette.image}}" alt="photo de {{recette.nomRecette}}">
 
     <div class="card-footer">
       <small class="text-muted">{{recette.zoneGeo.nom}}</small>
     </div>
+
 
     <div class="card-body">
       <h5 class="card-title">{{ recette.nomRecette }}</h5>
