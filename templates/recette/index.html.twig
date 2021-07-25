@@ -31,10 +31,15 @@
                     <a href="{{ path('recette_show', {'id': recette.id}) }}">
                      Consulter
                 </a></button>
+                {% if is_granted("ROLE_ADMIN") %}
+      {# si Admin est connecté, on lui affiche ce qui suit! #}
 
                     <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{{ path('recette_edit', {'id': recette.id}) }}">
                     Modifier
                 </a></button>
+
+
+                {% endif %}
                 </div>
 
                 <small class="text-muted">{{recette.zoneGeo.nom}}</small>
@@ -51,5 +56,7 @@
                 <td colspan="6">Aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
+         {% if is_granted("ROLE_ADMIN") %}
     <a href="{{ path('recette_new') }}">Créer une nouvelle recette</a>
+         {% endif %}
 {% endblock %}
