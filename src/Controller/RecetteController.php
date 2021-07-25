@@ -16,14 +16,14 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
- * @Route("/admin/recette")
+ * @Route("/recette")
  */
 class RecetteController extends AbstractController
 {
     
 
     /**
-     * @Route("/liste", name="recette_index", methods={"GET"})
+     * @Route("/", name="recette_index", methods={"GET"})
      */
     public function index( RecetteRepository $recetteRepository, RecetteIngredientRepository $recetteIngredientRepository,IngredientRepository $IngredientRepository /*, int $id*/): Response
     {
@@ -36,7 +36,7 @@ class RecetteController extends AbstractController
             }
 
     /**
-     * @Route("/new", name="recette_new", methods={"GET","POST"})
+     * @Route("/admin/new", name="recette_new", methods={"GET","POST"})
      */
     public function new(Request $request, SluggerInterface $slugger): Response
 
@@ -73,7 +73,7 @@ class RecetteController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="recette_show", methods={"GET"})
+     * @Route("/{id}/show", name="recette_show", methods={"GET"})
      */
     public function show(Recette $recette, RecetteIngredientRepository $recetteIngredientRepository): Response
     {
@@ -87,19 +87,35 @@ class RecetteController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="recette_edit", methods={"GET","POST"})
+     * @Route("/admin/{id}/edit", name="recette_edit", methods={"GET","POST"})
      */
-    public function edit(Request $request, Recette $recette,RecetteIngredientRepository $recetteIngredientRepository): Response
+    public function edit(Request $request, Recette $recette,RecetteIngredientRepository $recetteIngredientRepository, SluggerInterface $slugger): Response
     {
         $ingredients = $recetteIngredientRepository->findBy([
             'recette' => $recette,
         ]);
+        $oldFile = $recette->getImage();
         $form = $this->createForm(RecetteType::class, $recette);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $this->getDoctrine()->getManager()->flush();
+            $imagesDirectory = "img/uploads/";
+            $imageFile = $form->get('image')->getData();
+            if ($imageFile) {
+                if ($oldFile != "") {
+                    unlink($oldFile);
+                }
+                $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
+                $safeFileName = $slugger->slug($originalFilename);
+                $finalFilename = $safeFileName . '-' . uniqid() . '.' . $imageFile->guessExtension();
+                $imageFile->move($imagesDirectory, $finalFilename);
+                // petite astuce pour éviter d'avoir à modifier les vues
+                $fichierCheminComplet = "$imagesDirectory$finalFilename";
+                $recette->setImage($fichierCheminComplet);
 
+            }
+            
+            $entityManager = $this->getDoctrine()->getManager()->flush();
             return $this->redirectToRoute('recette_index', [], Response::HTTP_SEE_OTHER);
         }
 
@@ -111,7 +127,7 @@ class RecetteController extends AbstractController
     }
 
     /**
-     * @Route("/{id}", name="recette_delete", methods={"POST"})
+     * @Route("/{id}/delete", name="recette_delete", methods={"POST"})
      */
     public function delete(Request $request, Recette $recette): Response
     {

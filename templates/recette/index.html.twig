@@ -14,7 +14,8 @@
                    <div class="card col-3 recettes">
              <h3 class="card-header">{{recette.nomRecette}}</h3>
                      <div class=" d-flex align-items-center">
-                         <div class="imageRecette"><img src="../{{recette.image}}" alt="photo de {{recette.nomRecette}}"></div>
+                         <div class="card-img-top imageRecette "><img src="/{{recette.image}}" alt="photo de {{recette.nomRecette}}"></div>
+                         
                      </div>
 
                     <div class="col-12">
@@ -28,16 +29,7 @@
 
                 <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-outline-secondary">
-                        <a href="{{ path('recette_show', {'id': recette.id}) }}">
-                        Consulter
-                        </a>
-                    </button>
-
-                    <button type="button" class="btn btn-sm btn-outline-secondary">
-                        <a href="{{ path('recette_edit', {'id': recette.id}) }}">
-                        Modifier
-                        </a>
-                    </button> 
+                       
 
                 {# 
                 {% if is_granted("ROLE_USER") %}
@@ -64,6 +56,20 @@
                             </a> 
                  {% endif %}
                 
+
+                    <a href="{{ path('recette_show', {'id': recette.id}) }}">
+                     Consulter
+                </a></button>
+                {% if is_granted("ROLE_ADMIN") %}
+      {# si Admin est connecté, on lui affiche ce qui suit! #}
+
+                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{{ path('recette_edit', {'id': recette.id}) }}">
+                    Modifier
+                </a></button>
+
+
+                {% endif %}
+
                 </div>
 
                 <small class="text-muted">{{recette.zoneGeo.nom}}</small>
@@ -80,5 +86,7 @@
                 <td colspan="6">Aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
+         {% if is_granted("ROLE_ADMIN") %}
     <a href="{{ path('recette_new') }}">Créer une nouvelle recette</a>
+         {% endif %}
 {% endblock %}

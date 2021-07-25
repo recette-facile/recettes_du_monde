@@ -12,10 +12,97 @@
 				<li class="nav-item">
 					<a class="nav-link" href="{{ path('home')}}">Accueil</a>
 				</li>
-				{# Mettre la redirection de l'utilisateur connecté  #}
-				<li class="nav-item">
-					<a class="nav-link" href="#">Nos recettes</a>
+				
+ 	{% if is_granted("IS_AUTHENTICATED_FULLY") %}
+      {# si l'utilisateur est connecté, on lui affiche ce qui suit! #}
+		<li class="nav-item">
+					<a href="{{ path("favori_index") }}">
+						Favori
+						</a></li>
+
+		<li class="nav-item">
+					<a class="nav-link" href="{{ path("app_logout") }}">
+					<i class="fa fa-sign-out-alt ">Déconnexion</i>
+					</a>
+				
 				</li>
+	{% else %}
+
+				<button type="button" class="btn connexion me-2">
+					<a href="{{ path("app_login") }}">
+					<i class="fa fa-sign-in-alt ">Connexion</i>
+					</a>
+					</button>
+
+					<button type="button" class="btn btn-primary">
+					<a href="{{ path("user_new")}}">S'inscrire
+					</a>
+					</button>
+				
+		{% endif %}
+
+
+				<li class="nav-item">
+				
+					<a class="nav-link" href="{{ path('recette_index') }}">Nos recettes</a>
+				</li>
+
+				  		  
+  {% if is_granted("ROLE_ADMIN") %}
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Recettes
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{ path("recette_index") }}">Liste</a>
+          <a class="dropdown-item" href="{{ path("recette_new") }}">Ajouter</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Ingredients
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{ path("ingredient_index")}}">Liste</a>
+          <a class="dropdown-item" href="{{ path("ingredient_new")}}">Ajouter</a>
+        </div>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Ingrédients par recette
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{ path("recette_ingredient_index")}}">Liste</a>
+          
+        </div>
+      </li>
+
+	   <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Zones géographiques
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{ path("zone_geo_index")}}">Liste</a>
+          <a class="dropdown-item" href="{{ path("zone_geo_new")}}">Ajouter</a>
+        </div>
+      </li>
+
+	   <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Utilisateurs
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{{ path("user_index")}}">Liste</a>
+          <a class="dropdown-item" href="{{ path("user_new")}}">Ajouter</a>
+        </div>
+      </li>
+      {% endif %}
+	  {#  #}
+				{# Fonctionnalités à développer plus tard #}
 				<li class="nav-item dropdown">
 					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Recette par région
@@ -40,27 +127,19 @@
 
 			<div class="col-md-3 text-end">
 
-				<button type="button" class="btn connexion me-2">
-					<a href="{{ path("app_login") }}">
-					<i class="fa fa-sign-in-alt ">Connexion</i>
-					</a>
-					</button>
-					
-
-
-				<button type="button" class="btn btn-primary">
-					<a href="#"></a>S'inscrire</button>
+			 
 
 			</div>
 
 		</div>
 	</div>
 </nav>
-{# Optionnel à voir comment effectuer les recherches #}
+{# Fonctionnalités à développer plus tard #}
 <div class="container-sm d-flex justify-content-center">
 	<form class="d-flex col-6 m-3">
 		<input class="form-control me-2" type="search" placeholder="Rechercher une recette" aria-label="Rechercher une recette">
 		<button class="btn btn-outline-success" type="submit">Rechercher</button>
 	</form>
 </div>
+
 </header>

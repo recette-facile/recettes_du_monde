@@ -7,14 +7,19 @@
 <div class="card-deck">
 
   <div class="card">
-<<<<<<< Updated upstream
-    <img src="https://www.wupisi.com/wp-content/uploads/2021/03/Plat_Kuskumas_avec_Sauce-1024x1024.jpg" alt="couscouma">
-=======
+
     <img src="../{{recette.image}}" alt="photo de {{recette.nomRecette}}">
     <div class="card-footer">
       <small class="text-muted">>{{recette.zoneGeo.nom}}</small>
     </div>
->>>>>>> Stashed changes
+
+    <img src="../{{recette.image}}" alt="photo de {{recette.nomRecette}}">
+
+    <div class="card-footer">
+      <small class="text-muted">{{recette.zoneGeo.nom}}</small>
+    </div>
+
+
     <div class="card-body">
       <h5 class="card-title">{{ recette.nomRecette }}</h5>
       <p class="card-text">{{ recette.descriptionRecette|slice(0,160) }} ...</p>
