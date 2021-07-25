@@ -16,7 +16,7 @@ use Symfony\Component\String\Slugger\SluggerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 
 /**
- * @Route("/admin/recette")
+ * @Route("/recette")
  */
 class RecetteController extends AbstractController
 {
@@ -36,7 +36,7 @@ class RecetteController extends AbstractController
             }
 
     /**
-     * @Route("/new", name="recette_new", methods={"GET","POST"})
+     * @Route("/admin/new", name="recette_new", methods={"GET","POST"})
      */
     public function new(Request $request, SluggerInterface $slugger): Response
 
@@ -87,7 +87,7 @@ class RecetteController extends AbstractController
     }
 
     /**
-     * @Route("/{id}/edit", name="recette_edit", methods={"GET","POST"})
+     * @Route("/admin/{id}/edit", name="recette_edit", methods={"GET","POST"})
      */
     public function edit(Request $request, Recette $recette,RecetteIngredientRepository $recetteIngredientRepository, SluggerInterface $slugger): Response
     {
