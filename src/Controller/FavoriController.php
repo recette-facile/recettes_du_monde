@@ -8,6 +8,7 @@ use App\Entity\Recette;
 use App\Form\FavoriType;
 use App\Repository\UserRepository;
 use App\Repository\FavoriRepository;
+use App\Repository\RecetteRepository;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -53,15 +54,22 @@ class FavoriController extends AbstractController
         ]);
     }
 
-    /**
+/**
      * @Route("/{id}", name="favori_show", methods={"GET"})
      */
-    public function show(Favori $favori): Response
+    public function show(Favori $favori,Recette $recette, RecetteRepository $recetteRepository): Response
     {
+        
+        $nomRecettes = $recetteRepository->findBy([
+            'nomRecette' => $recette
+        ]);
+
         return $this->render('favori/show.html.twig', [
             'favori' => $favori,
+            'recette' => $nomRecettes
         ]);
     }
+
 
     /**
      * @Route("/{id}/edit", name="favori_edit", methods={"GET","POST"})

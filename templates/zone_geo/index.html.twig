@@ -1,35 +1,38 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}ZoneGeo index{% endblock %}
+{% block title %}Liste des zones géo{% endblock %}
 
 {% block body %}
-    <h1>ZoneGeo index</h1>
+    <div class="m-4">
+        <h1>Liste des zones géographiques</h1>
 
-    <table class="table">
-        <thead>
-            <tr>
-                <th>Id</th>
-                <th>Nom</th>
-                <th>actions</th>
-            </tr>
-        </thead>
-        <tbody>
-        {% for zone_geo in zone_geos %}
-            <tr>
-                <td>{{ zone_geo.id }}</td>
-                <td>{{ zone_geo.nom }}</td>
-                <td>
-                    <a href="{{ path('zone_geo_show', {'id': zone_geo.id}) }}">show</a>
-                    <a href="{{ path('zone_geo_edit', {'id': zone_geo.id}) }}">edit</a>
-                </td>
-            </tr>
-        {% else %}
-            <tr>
-                <td colspan="3">no records found</td>
-            </tr>
-        {% endfor %}
-        </tbody>
-    </table>
-
-    <a href="{{ path('zone_geo_new') }}">Create new</a>
+        <table class="table table-striped">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Nom</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+            {% for zone_geo in zone_geos %}
+                <tr>
+                    <td>{{ zone_geo.id }}</td>
+                    <td>{{ zone_geo.nom }}</td>
+                    <td>
+                        <a href="{{ path('zone_geo_show', {'id': zone_geo.id}) }}" class="me-4"><i class="far fa-eye"></i>   Consulter</a>
+                        <a href="{{ path('zone_geo_edit', {'id': zone_geo.id}) }}" class="ms-4"><i class="far fa-edit"></i>   Modifier</a>
+                    </td>
+                </tr>
+            {% else %}
+                <tr>
+                    <td colspan="3">Aucun élément trouvé</td>
+                </tr>
+            {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    <a href="{{ path('zone_geo_new')}}" class="redirection_link">
+        <i class="far fa-plus-square"></i>    Créer une nouvelle zone
+    </a>     
 {% endblock %}

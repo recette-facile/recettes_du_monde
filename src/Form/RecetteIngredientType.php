@@ -15,8 +15,8 @@ class RecetteIngredientType extends AbstractType
     {
         $builder
             ->add('ingredient', EntityType::class, [
-                'label' => 'choisir un ingrédient',
-                'placeholder' => '-- choisir  --',
+                'label' => 'Choisir un ingrédient',
+                'placeholder' => '-- Choisir  --',
                 'choice_label' => 'nomIngredient',
                 'class' => Ingredient::class
             ])

@@ -1,145 +1,98 @@
 <header>
-<nav class="navbar navbar-expand-lg navbar-light bg-light">
-	<div class="container-fluid">
-		<a class="navbar-brand" href="{{ path('home')}}">Recettes du monde</a>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
+	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+		<div class="container-fluid">
+			<a class="navbar-brand mx-2" href="{{ path('home')}}">Délices d'Ailleurs</a>
 
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav me-auto mb-2 mb-lg-0 mx-auto">
-
-				<li class="nav-item">
-					<a class="nav-link" href="{{ path('home')}}">Accueil</a>
-				</li>
-				
- 	{% if is_granted("IS_AUTHENTICATED_FULLY") %}
-      {# si l'utilisateur est connecté, on lui affiche ce qui suit! #}
-		<li class="nav-item">
-					<a href="{{ path("favori_index") }}">
-						Favori
-						</a></li>
-
-		<li class="nav-item">
-					<a class="nav-link" href="{{ path("app_logout") }}">
-					<i class="fa fa-sign-out-alt ">Déconnexion</i>
-					</a>
-				
-				</li>
-	{% else %}
-
-				<button type="button" class="btn connexion me-2">
-					<a href="{{ path("app_login") }}">
-					<i class="fa fa-sign-in-alt ">Connexion</i>
-					</a>
-					</button>
-
-					<button type="button" class="btn btn-primary">
-					<a href="{{ path("user_new")}}">S'inscrire
-					</a>
-					</button>
-				
-		{% endif %}
-
-
-				<li class="nav-item">
-				
-					<a class="nav-link" href="{{ path('recette_index') }}">Nos recettes</a>
-				</li>
-
-				  		  
-  {% if is_granted("ROLE_ADMIN") %}
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Recettes
-        </a>
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{{ path("recette_index") }}">Liste</a>
-          <a class="dropdown-item" href="{{ path("recette_new") }}">Ajouter</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Ingredients
-        </a>
-
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{{ path("ingredient_index")}}">Liste</a>
-          <a class="dropdown-item" href="{{ path("ingredient_new")}}">Ajouter</a>
-        </div>
-      </li>
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Ingrédients par recette
-        </a>
-
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{{ path("recette_ingredient_index")}}">Liste</a>
-          
-        </div>
-      </li>
-
-	   <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Zones géographiques
-        </a>
-
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{{ path("zone_geo_index")}}">Liste</a>
-          <a class="dropdown-item" href="{{ path("zone_geo_new")}}">Ajouter</a>
-        </div>
-      </li>
-
-	   <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-          Utilisateurs
-        </a>
-
-        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="{{ path("user_index")}}">Liste</a>
-          <a class="dropdown-item" href="{{ path("user_new")}}">Ajouter</a>
-        </div>
-      </li>
-      {% endif %}
-	  {#  #}
-				{# Fonctionnalités à développer plus tard #}
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+			<div class="collapse navbar-collapse" id="navbarSupportedContent">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5 col-12">
+					<li class="nav-item">
+						<a class="nav-link me-5" href="{{ path('home')}}">Accueil</a>
+					</li>
+					<li class="nav-item">		
+						<a class="nav-link" href="{{ path('recette_index') }}">Nos recettes</a>
+					</li>
+					{# Fonctionnalités à développer plus tard #}
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
 						Recette par région
-					</a>
-					<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-						<li>
-							<a class="dropdown-item" href="#">Afrique de l'Ouest</a>
-						</li>
-						<li>
-							<a class="dropdown-item" href="#">Afrique de l'Est</a>
-						</li>
-						<li>
-							<a class="dropdown-item" href="#">Maghreb</a>
-						</li>
-						<li>
-							<a class="dropdown-item" href="#">Moyen-Orient</a>
-						</li>
-					</ul>
-				</li>
-			</ul>
+						</a>
+						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" href="#">Afrique de l'Ouest</a></li>
+							<li><a class="dropdown-item" href="#">Afrique de l'Est</a></li>
+							<li><a class="dropdown-item" href="#">Maghreb</a></li>
+							<li><a class="dropdown-item" href="#">Moyen-Orient</a></li>
+						</ul>
+					</li>
+				
 
-
-			<div class="col-md-3 text-end">
-
-			 
-
+							
+					{% if is_granted("ROLE_ADMIN") %}
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Gestion recettes
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" href="{{ path("recette_index") }}">Liste</a></li>
+								<li><a class="dropdown-item" href="{{ path("recette_new") }}">Ajouter</a></li>
+								<li><hr class="dropdown-divider"></li>
+								<li class="ms-2">Ingrédients</li>
+								<li><a class="dropdown-item" href="{{ path("ingredient_index")}}">Liste</a></li>
+								<li><a class="dropdown-item" href="{{ path("ingredient_new")}}">Ajouter</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Zones géographiques
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" href="{{ path("zone_geo_index")}}">Liste</a></li>
+								<li><a class="dropdown-item" href="{{ path("zone_geo_new")}}">Ajouter</a></li>
+							</ul>
+						</li>
+						<li class="nav-item dropdown me-5">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+							Utilisateurs
+							</a>
+							<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<li><a class="dropdown-item" href="{{ path("user_index")}}">Liste</a></li>
+								<li><a class="dropdown-item" href="{{ path("user_new")}}">Ajouter</a></li>
+							</ul>
+						</li>
+					{% endif %}
+			
+				</ul>
 			</div>
 
+			{% if is_granted("IS_AUTHENTICATED_FULLY") %}
+			{# si l'utilisateur est connecté, on lui affiche ce qui suit! #}
+			<ul class='navbar-nav'>
+				<div class="col text-end">
+					<li class="nav-item ms-5">
+						<a class="nav-link" href="{{ path("favori_index") }}"><i class="fas fa-heart me-3"></i>Favoris</a>
+					</li>
+					<li class="nav-item last">
+						<a class="nav-link logout " href="{{ path("app_logout") }}">Déconnexion</a>					
+					</li>
+				</div>			
+			{% else %}
+				<div class="col text-end">
+					<button class="btn btn-outline-light">
+					<a href="{{ path("app_login") }}">Se connecter</a>
+					</button>
+					<button type="button" class="btn btn-primary">
+						<a href="{{ path("user_new")}}">S'inscrire</a>
+					</button>					
+				</div>
+			</ul>
+			{% endif %}
 		</div>
-	</div>
-</nav>
-{# Fonctionnalités à développer plus tard #}
-<div class="container-sm d-flex justify-content-center">
-	<form class="d-flex col-6 m-3">
-		<input class="form-control me-2" type="search" placeholder="Rechercher une recette" aria-label="Rechercher une recette">
-		<button class="btn btn-outline-success" type="submit">Rechercher</button>
-	</form>
-</div>
+	</nav>
 
+	{# Fonctionnalités à développer plus tard #}
+	<div class="container-sm d-flex justify-content-center">
+		<form class="d-flex col-6 m-3">
+			<input class="form-control me-2" type="search" placeholder="Rechercher une recette" aria-label="Rechercher une recette">
+			<button class="btn btn-outline-success" type="submit">Rechercher</button>
+		</form>
+	</div>
 </header>

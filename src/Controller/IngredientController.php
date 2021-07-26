@@ -12,7 +12,7 @@ use Symfony\Component\Routing\Annotation\Route;
 
 
 /**
- * @Route("/ingredient")
+ * @Route("ingredient")
  */
 class IngredientController extends AbstractController
 {

@@ -28,10 +28,11 @@ class UserController extends AbstractController
     /**
      * @Route("/inscription", name="user_new", methods={"GET","POST"})
      */
-  
-    public function new(UserPasswordEncoderInterface $passwordEncoder
-    , Request $request): Response
-    {
+
+    public function new(
+        UserPasswordEncoderInterface $passwordEncoder,
+        Request $request
+    ): Response {
         $user = new User();
         $form = $this->createForm(RegistrationFormType::class, $user);
         $form->handleRequest($request);
@@ -40,11 +41,11 @@ class UserController extends AbstractController
 
             // encode the plain password
             $user->setPassword(
-                 $passwordEncoder->encodePassword(
+                $passwordEncoder->encodePassword(
                     $user,
                     $form->get('plainPassword')->getData()
-        )
-    );
+                )
+            );
 
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->persist($user);
@@ -94,7 +95,7 @@ class UserController extends AbstractController
      */
     public function delete(Request $request, User $user): Response
     {
-        if ($this->isCsrfTokenValid('delete'.$user->getId(), $request->request->get('_token'))) {
+        if ($this->isCsrfTokenValid('delete' . $user->getId(), $request->request->get('_token'))) {
             $entityManager = $this->getDoctrine()->getManager();
             $entityManager->remove($user);
             $entityManager->flush();

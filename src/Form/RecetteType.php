@@ -5,7 +5,6 @@ namespace App\Form;
 
 use App\Entity\Recette;
 use App\Entity\ZoneGeo;
-use App\Form\RecetteType;
 use App\Entity\RecetteIngredient;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\FormBuilderInterface;
@@ -24,8 +23,8 @@ class RecetteType extends AbstractType
             ->add('tempsCuisson')
             ->add('descriptionRecette')
             ->add('zoneGeo', EntityType::class, [
-                'label' => 'cuisine typique de',
-                'placeholder' => '-- choisir une zone géographique  --',
+                'label' => 'Cuisine typique de',
+                'placeholder' => '-- Choisir une zone géographique  --',
                 'choice_label' => 'nom',
                 'class' => ZoneGeo::class
             ])
@@ -33,10 +32,7 @@ class RecetteType extends AbstractType
                 'mapped' => false,
                 'required' => true,
                 'multiple' => false,
-                'label' => "uploader votre image",
-                'attr' => [
-                    'placeholder' => "parcourir pour trouver l'image"
-                ],
+                'label' => "Uploader votre image",
                 'constraints' => [
                     new File([
                         'maxSize' => '2048K',
