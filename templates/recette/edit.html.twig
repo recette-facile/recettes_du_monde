@@ -6,12 +6,11 @@
     <h1>Modifier la recette</h1>
 
     {{ include('recette/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
-   {# {{ include('recette_ingredient/_form.html.twig') }} #}
-
-
-
-
-    <a href="{{ path('recette_index') }}">Retour à la liste des recettes</a>
-
+    {# {{ include('recette_ingredient/_form.html.twig') }} #}
     {{ include('recette/_delete_form.html.twig') }}
+
+    <a href="{{ path('recette_index') }}" 
+        class="btn col-3 shadow p-3 mb-5 bg-body rounded rounded-pill">
+        <i class="fas fa-angle-double-left"></i>   Retour à la liste des recettes
+    </a>
 {% endblock %}

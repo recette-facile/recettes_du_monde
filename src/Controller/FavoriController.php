@@ -71,6 +71,7 @@ class FavoriController extends AbstractController
         ]);
     }
 
+
     /**
      * @Route("/{id}/edit", name="favori_edit", methods={"GET","POST"})
      */

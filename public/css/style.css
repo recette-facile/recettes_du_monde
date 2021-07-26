@@ -1,11 +1,13 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,700;1,400&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Dr+Sugiyama&family=Poppins:ital,wght@0,300;0,400;0,600;0,700;1,400;1,700&display=swap');
 
 /**** QUICK RESET ***/
 html,
 body {
   font-family: "Poppins", "Sans-Serif", "Arial";
 }
-
+.redirection_link{
+  text-decoration: none;
+}
 /*********HEADER*********/
 header {
   background-color: #e4d1cb;
@@ -14,38 +16,71 @@ header {
 .navbar {
   height: 109px;
 }
+
 nav.navbar.navbar-expand-lg.navbar-light.bg-light {
   box-shadow: rgb(0 0 0 / 24%) 0px 3px 8px;
   background-color: #e6b7a7!important;
 }
 .navbar-light .navbar-brand {
   color: #962500;
-  font-size: 1.5rem;
-  padding-left: 15px;;
+  font-family: 'Dr Sugiyama', 'cursive';
+  font-size: 2.5rem;
 }
-a.navbar-brand,
+.navbar-light .navbar-brand:hover, 
+.navbar-light .navbar-brand:active, 
+.navbar-light .navbar-brand:focus {
+  border: none; 
+  outline: none; 
+  color: #962500;
+}
+
 .navbar-expand-lg .navbar-nav {
-  font-weight: 600;
+  font-weight: 700;
   text-transform: uppercase;
+  font-size: 1.2rem;
 }
 
 .navbar-light .navbar-nav .nav-linklight {
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
 }
-
+.btn-outline-light a{
+  text-decoration: none;
+  font-size: 1.3rem;
+  color: #962500;
+}
+.btn-outline-light:hover, 
+.btn-outline-light:focus, 
+.btn-outline-light:active{
+  background-color: white;
+} 
 .btn-primary {
   background-color: #962500;
   border: none;
+  padding: 7px 30px;
+  margin-left:20px
 }
+.btn-primary a {
+  font-size: 1.3rem;
+  text-decoration: none;
+  color:#e7d1ca;
+}
+
 .btn-primary:hover,
 .btn-primary:focus,
 .btn-primary:active {
   background-color: #db7958;
   box-shadow: none;
 }
-.btn .me-2 {
-  box-shadow: #962500;
+
+.text-end a.fa, .fas .fa-user{
+  font-size: 2.3rem;
+  color: #962500;
+  justify-content: center;
 }
+.last a.nav-link.logout{
+ color: #962500;
+}
+/* barre de recherche */
 .btn-outline-success {
   color: #962500;
   border-color: #e6b7a7;
@@ -58,13 +93,17 @@ a.navbar-brand,
   box-shadow: none;
 }
 /* carousel */
-.carousel-inner > .item {
+.carousel .slide{
+  padding:0;
+}
+.carousel-item img {
   height: 400px;
+  object-fit: cover;
 }
 
 /*********FOOTER*********/
 .bg-white {
-  background-color: #e6b7a7 !important;
+  background-color: #e6b7a7!important;
 }
 .text-footer {
   text-decoration: none;
@@ -73,7 +112,6 @@ a.navbar-brand,
 footer .text-uppercase {
   font-weight: 700;
   color:#962500;
- 
 }
 .logo-footer{
   color: #962500;
@@ -81,7 +119,7 @@ footer .text-uppercase {
   font-weight: 600;
 }
 .bg-light.py-2{
-  background-color: #e6b7a7c2 !important;
+  background-color: #e6b7a7c2!important;
   color: #962500;
   font-style: italic;
 }

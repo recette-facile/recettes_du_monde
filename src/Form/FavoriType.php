@@ -24,8 +24,8 @@ class FavoriType extends AbstractType
            //     "choice_label" => "nomUser"
            // ])
             ->add('recette', EntityType::class, [
-                'label' => 'choisir une recette',
-                'placeholder' => '-- choisir  --',
+                'label' => 'Choisir une recette',
+                'placeholder' => '-- Choisir  --',
                 'choice_label' => 'nomRecette',
                 'class' => Recette::class
                

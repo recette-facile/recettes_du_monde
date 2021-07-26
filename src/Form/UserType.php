@@ -22,7 +22,7 @@ class UserType extends AbstractType
                 "required" => true, 
                 'label' => "Votre mot de passe",
                 'attr' => [
-                'placeholder' => "écrivez votre mot de passe"
+                'placeholder' => "Ecrivez votre mot de passe"
                 ]
            ])
             ->add('roles', ChoiceType::class, [
