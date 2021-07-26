@@ -32,67 +32,31 @@
                             </button>
                         {% endif %}
                     </div>
-                
-
-                <div class="card-footer">
+                </div>          
 
                 <div class="btn-group">
-                    <button type="button" class="btn btn-sm btn-outline-secondary">
-                       
 
-                {# 
+
                 {% if is_granted("ROLE_USER") %}
-                    {% for recette in recettes %}
-                        {% if favori.id == user.id %}
-                           <i class="fas fa-heart"></i>
-                        {% else %}
-                            <a href="{{path('favori_ajout', {id:recette.id})}}">
-                                <i class="far fa-heart"></i>
-                            </a>
-                        {% endif %}
-                    {% else %}
-                        <a href="{{path('favori_ajout', {id:recette.id})}}">
-                                <i class="far fa-heart"></i>
-                            </a>          
-                    {% endfor %}
-                {% else %}
-                    <i class="far fa-heart"></i>
-                {% endif %}
-                #}
-                
-
-                    <a href="{{ path('recette_show', {'id': recette.id}) }}">
-                     Consulter
-                </a></button>
-                {% if is_granted("ROLE_ADMIN") %}
-      {# si Admin est connecté, on lui affiche ce qui suit! #}
-
-                    <button type="button" class="btn btn-sm btn-outline-secondary"><a href="{{ path('recette_edit', {'id': recette.id}) }}">
-                    Modifier
-                </a></button>
-
-                 {% if is_granted("ROLE_USER") %}
                     <button> 
                         <a href="{{path('favori_ajout', {id:recette.id})}}">
                             <i class="fas fa-heart"></i>
                         </a> 
                     </button>
-                 {% endif %}
-                
-
                 {% endif %}
+                
 
                 </div>
             </div>
         </div>
-                        {% else %}
-                            <tr>
-                                <td colspan="6">Aucun enregistrement trouvé</td>
-                            </tr>
-                        {% endfor %}
-                        {% if is_granted("ROLE_ADMIN") %}
-                            <a href="{{ path('recette_new')}}" class="redirection_link">
-                                <i class="far fa-plus-square"></i>    Créer une nouvelle Recette
-                            </a>                            
-                        {% endif %}
+        {% else %}
+            <tr>
+                <td colspan="6">Aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        {% if is_granted("ROLE_ADMIN") %}
+            <a href="{{ path('recette_new')}}" class="redirection_link">
+                <i class="far fa-plus-square"></i>    Créer une nouvelle Recette
+            </a>                            
+        {% endif %}
 {% endblock %}
