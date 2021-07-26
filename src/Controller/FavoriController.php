@@ -54,7 +54,8 @@ class FavoriController extends AbstractController
         ]);
     }
 
-/**
+
+    /**
      * @Route("/{id}", name="favori_show", methods={"GET"})
      */
     public function show(Favori $favori,Recette $recette, RecetteRepository $recetteRepository): Response
@@ -103,5 +104,19 @@ class FavoriController extends AbstractController
         }
 
         return $this->redirectToRoute('favori_index', [], Response::HTTP_SEE_OTHER);
+    }
+
+     /**
+     * @Route("/ajout/{id}", name="favori_ajout", methods={"GET","POST"})
+     */
+    public function ajout(Recette $recette): Response
+    {
+        $recette->addFavori($this->getUser());
+        $entityManager = $this->getDoctrine()->getManager();
+        $entityManager->persist($favori);
+        $entityManager->fluch();
+
+        return $this->redirectToRoute('recette_show');
+        
     }
 }

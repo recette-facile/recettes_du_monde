@@ -139,4 +139,21 @@ class RecetteController extends AbstractController
 
         return $this->redirectToRoute('recette_index', [], Response::HTTP_SEE_OTHER);
     }
+
+
+   
+
+   // /**
+   //  * @Route("/retrait/{id}", name="favori_ajout", methods={"GET","POST"})
+   //  */
+   // public function retrait(Favori $favori, Recette $recette): Response
+   // {
+   //     $recette->removeFavori($this->getUser());
+   //     $entityManager = $this->getDoctrine()->getManager();
+   //     $entityManager->persist($favori);
+   //     $entityManager->fluch();
+//
+   //     return $this->redirectToRoute('recette_index');
+   //     
+   // }
 }
