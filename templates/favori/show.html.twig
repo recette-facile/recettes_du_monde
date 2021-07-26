@@ -1,3 +1,4 @@
+  
 {% extends 'base.html.twig' %}
 
 {% block title %}Favori{% endblock %}
@@ -8,21 +9,20 @@
     <table class="table">
         <tbody>
             <tr>
-                <th>Id</th>
+                <th>Id : </th>
                 <td>{{ favori.id }}</td>
+
+                <th>Recette : </th>
+                <td> 
+                    {{ favori.recette.nomRecette }}
+                </td>
             </tr>
-            
-
-            <th>Nom recette</th>
-            <td>{{ favori.recette.nomRecette}}</td>
-
-
         </tbody>
     </table>
 
-    <a href="{{ path('favori_index') }}">back to list</a>
+    <a href="{{ path('favori_index') }}">Retour à la liste</a>
 
-    <a href="{{ path('favori_edit', {'id': favori.id}) }}">edit</a>
+    <a href="{{ path('favori_edit', {'id': favori.id}) }}">Modifier</a>
 
     {{ include('favori/_delete_form.html.twig') }}
 {% endblock %}
