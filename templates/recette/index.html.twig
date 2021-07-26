@@ -32,18 +32,31 @@
                             </button>
                         {% endif %}
                     </div>
-                        <small class="col-6 text-end">{{recette.zoneGeo.nom}}</small>
+                </div>          
+
+                <div class="btn-group">
+
+
+                {% if is_granted("ROLE_USER") %}
+                    <button> 
+                        <a href="{{path('favori_ajout', {id:recette.id})}}">
+                            <i class="fas fa-heart"></i>
+                        </a> 
+                    </button>
+                {% endif %}
+                
+
                 </div>
             </div>
         </div>
-                        {% else %}
-                            <tr>
-                                <td colspan="6">Aucun enregistrement trouvé</td>
-                            </tr>
-                        {% endfor %}
-                        {% if is_granted("ROLE_ADMIN") %}
-                            <a href="{{ path('recette_new')}}" class="redirection_link">
-                                <i class="far fa-plus-square"></i>    Créer une nouvelle Recette
-                            </a>                            
-                        {% endif %}
+        {% else %}
+            <tr>
+                <td colspan="6">Aucun enregistrement trouvé</td>
+            </tr>
+        {% endfor %}
+        {% if is_granted("ROLE_ADMIN") %}
+            <a href="{{ path('recette_new')}}" class="redirection_link">
+                <i class="far fa-plus-square"></i>    Créer une nouvelle Recette
+            </a>                            
+        {% endif %}
 {% endblock %}
