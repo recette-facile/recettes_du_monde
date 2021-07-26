@@ -8,27 +8,18 @@
 
   <div class="card">
 
-    <img src="../{{recette.image}}" alt="photo de {{recette.nomRecette}}">
+     <img class="card-img-top" src="/{{recette.image}}" alt="Card image cap">
     <div class="card-footer">
       <small class="text-muted">>{{recette.zoneGeo.nom}}</small>
     </div>
 
-    <img src="../{{recette.image}}" alt="photo de {{recette.nomRecette}}">
-
-    <div class="card-footer">
-      <small class="text-muted">{{recette.zoneGeo.nom}}</small>
-    </div>
 
 
     <div class="card-body">
-      <div class="card-body">
       <h5 class="card-title">{{ recette.nomRecette }}</h5>
-      <p class="card-text">{{ recette.descriptionRecette|slice(0,160) }} ...</p>
+      <p class="card-text">{{ recette.descriptionRecette}} ...</p>
     </div>
-<<<<<<< HEAD
-=======
     
->>>>>>> 795e9170430abc8738855b72e046eaac8bce3a50
      <table class="table">
         <thead>
             <tr>
@@ -40,22 +31,11 @@
             <tr>
                 <td>{{ ingredient.ingredient.nomIngredient }}</td>
             </tr>
-<<<<<<< HEAD
-         
-=======
->>>>>>> 795e9170430abc8738855b72e046eaac8bce3a50
         {% else %}
             <tr>
                 <td colspan="2">Liste vide</td>
             </tr>
         {% endfor %}
-<<<<<<< HEAD
-           
-    <div class="card-footer">
-      <small class="text-muted">>{{recette.zoneGeo.nom}}</small>
-    </div>
-=======
->>>>>>> 795e9170430abc8738855b72e046eaac8bce3a50
         </tbody>
     </table>
 
@@ -74,4 +54,3 @@
      
       <a href="{{ path('recette_new') }}">Créer une nouvelle recette</a>
 {% endblock %}
-
