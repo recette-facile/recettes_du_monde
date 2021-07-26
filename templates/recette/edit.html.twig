@@ -3,6 +3,7 @@
 {% block title %}Modifier la recette{% endblock %}
 
 {% block body %}
+<div class="m-4">
     <h1>Modifier la recette</h1>
 
     {{ include('recette/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
@@ -13,4 +14,5 @@
         class="btn col-3 shadow p-3 mb-5 bg-body rounded rounded-pill">
         <i class="fas fa-angle-double-left"></i>   Retour à la liste des recettes
     </a>
+</div>
 {% endblock %}

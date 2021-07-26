@@ -20,9 +20,9 @@ class UserType extends AbstractType
             ->add('email')
             ->add('password', PasswordType::class, [
                 "required" => true, 
-                'label' => "Votre mot de passe",
+                'label' => "Mot de passe",
                 'attr' => [
-                'placeholder' => "Ecrivez votre mot de passe"
+                'placeholder' => "Entrez votre mot de passe"
                 ]
            ])
             ->add('roles', ChoiceType::class, [
