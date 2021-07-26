@@ -54,9 +54,11 @@
                 <td colspan="6">Aucun enregistrement trouvé</td>
             </tr>
         {% endfor %}
+
         {% if is_granted("ROLE_ADMIN") %}
             <a href="{{ path('recette_new')}}" class="redirection_link">
                 <i class="far fa-plus-square"></i>    Créer une nouvelle Recette
             </a>                            
         {% endif %}
+        
 {% endblock %}
