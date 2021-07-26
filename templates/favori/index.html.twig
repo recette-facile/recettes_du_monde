@@ -9,6 +9,7 @@
         <thead>
             <tr>
                 <th>Id</th>
+                <th>Recette : </th>
                 <th>actions</th>
             </tr>
         </thead>
@@ -16,6 +17,7 @@
         {% for favori in favoris %}
             <tr>
                 <td>{{ favori.id }}</td>
+                <td> {{ favori.recette.nomRecette }}</td>
                 <td>
                     <a href="{{ path('favori_show', {'id': favori.id}) }}">Voir</a>
                     <a href="{{ path('favori_edit', {'id': favori.id}) }}">Mettre à jour</a>
