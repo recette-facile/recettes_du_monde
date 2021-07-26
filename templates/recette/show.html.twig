@@ -26,11 +26,14 @@
     <div class="row">
         <ol class="list-group list-group-numbered col-3 m-4 ms-0">
             <h5>Ingrédients</h5>
-            <li class="list-group-item d-flex justify-content-between align-items-start shadow-sm p-3 mb-5 bg-body rounded">
-                <div class="ms-2 me-auto">
+            
+            
                     {% for ingredient in ingredients %}
+
+                    <li class="list-group-item d-flex justify-content-between align-items-start shadow-sm p-3 mb-5 bg-body rounded">
+                <div class="ms-2 me-auto">
                         <div class="fw-bold">{{ ingredient.ingredient.nomIngredient }}</div>
-                        </div>
+                
                     </li>
                 {% else %}
                     <div>Liste vide</div>
@@ -42,7 +45,9 @@
         class="btn col-3 shadow p-3 mb-5 bg-body rounded rounded-pill">
         <i class="fas fa-angle-double-left"></i>   Retour à la liste des recettes
     </a>
-    <a href="{{ path('recette_new')}}" class="redirection_link">
-        <i class="far fa-plus-square"></i>    Créer une nouvelle Recette
-    </a>               
+    {% if is_granted("ROLE_ADMIN") %}
+            <a href="{{ path('recette_new')}}" class="redirection_link">
+                <i class="far fa-plus-square"></i>    Créer une nouvelle Recette
+            </a>                            
+        {% endif %}              
 {% endblock %}
