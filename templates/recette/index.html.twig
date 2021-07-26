@@ -50,11 +50,6 @@
                     <i class="far fa-heart"></i>
                 {% endif %}
                 #}
-                 {% if is_granted("ROLE_USER") %}
-                    <a href="{{path('favori_ajout', {id:recette.id})}}">
-                                <i class="fas fa-heart"></i>
-                            </a> 
-                 {% endif %}
                 
 
                     <a href="{{ path('recette_show', {'id': recette.id}) }}">
@@ -67,6 +62,14 @@
                     Modifier
                 </a></button>
 
+                 {% if is_granted("ROLE_USER") %}
+                    <button> 
+                        <a href="{{path('favori_ajout', {id:recette.id})}}">
+                            <i class="fas fa-heart"></i>
+                        </a> 
+                    </button>
+                 {% endif %}
+                
 
                 {% endif %}
 
