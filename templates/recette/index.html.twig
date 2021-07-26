@@ -11,23 +11,12 @@
 
                 <div class="row">
                  {% for recette in recettes %}
-                   <div class="card col-3 recettes">
-             <h3 class="card-header">{{recette.nomRecette}}</h3>
-                     <div class=" d-flex align-items-center">
-                         <div class="card-img-top imageRecette "><img src="/{{recette.image}}" alt="photo de {{recette.nomRecette}}"></div>
-                         
-                     </div>
-
-                    <div class="col-12">
-                        <div class="card-body">
-                            <p>{{ recette.descriptionRecette|slice(0,160) }} ...</p>
-                        </div>
-                    </div>
-                
-
-                <div class="card-footer">
-
-                <div class="btn-group">
+                <div class="card" style="width: 18rem;">
+  <img class="card-img-top" src="/{{recette.image}}" alt="Card image cap">
+  <div class="card-body">
+    <h5 class="card-title">{{recette.nomRecette}}</h5>
+    <p class="card-text">{{ recette.descriptionRecette|slice(0,160) }} ...</p>
+    <div class="btn-group">
                     <button type="button" class="btn btn-sm btn-outline-secondary">
                     <a href="{{ path('recette_show', {'id': recette.id}) }}">
                      Consulter
@@ -37,15 +26,9 @@
                     Modifier
                 </a></button>
                 </div>
+  </div>
+</div>
 
-                <small class="text-muted">{{recette.zoneGeo.nom}}</small>
-                </div>
-                </div>
-                </div>
-                </div>
-    
-        </div>
-    </div>
            
         {% else %}
             <tr>
@@ -54,3 +37,4 @@
         {% endfor %}
     <a href="{{ path('recette_new') }}">Créer une nouvelle recette</a>
 {% endblock %}
+     

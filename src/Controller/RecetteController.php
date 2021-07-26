@@ -103,7 +103,7 @@ class RecetteController extends AbstractController
             $imageFile = $form->get('image')->getData();
             if ($imageFile) {
                 if ($oldFile != "") {
-                    unlink($oldFile);
+                    // unlink($oldFile);
                 }
                 $originalFilename = pathinfo($imageFile->getClientOriginalName(), PATHINFO_FILENAME);
                 $safeFileName = $slugger->slug($originalFilename);
