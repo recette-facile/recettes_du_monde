@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 <form method="post" action="{{ path('user_delete', {'id': user.id}) }}" onsubmit="return confirm('Etes-vous sur de vouloir supprimer?');">
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
     <button class="btn btn-danger"><i class="far fa-trash-alt"></i>   Supprimer</button>
@@ -7,4 +8,9 @@
     <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
     <button class="btn btn-danger"><i class="far fa-trash-alt"></i>  Supprimer</button>
 >>>>>>> master
+=======
+<form method="post" action="{{ path('user_delete', {'id': user.id}) }}" onsubmit="return confirm('Etes-vous sur de vouloir supprimer cet élément');">
+    <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ user.id) }}">
+    <button class="btn btn-danger"><i class="far fa-trash-alt"></i>  Supprimer</button>
+>>>>>>> origin
 </form>
