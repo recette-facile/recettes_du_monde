@@ -4,7 +4,7 @@
 			<a class="navbar-brand mx-3" href="{{ path('home')}}">Délices d'Ailleurs</a>
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav d-flex justify-content-end col-12">
+				<ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex justify-content-end">
 					<li class="nav-item">
 						<a class="nav-link"  href="{{ path('recette_index')}}" style="text-transform:uppercase; font-size:1.2rem; font-weight:700; color:#962500;">Nos Recettes</a>
 					</li>
@@ -74,12 +74,12 @@
 						</div>					
 					{% if is_granted("IS_AUTHENTICATED_FULLY") %}
 					{# si l'utilisateur est connecté, on lui affiche ce qui suit! #}
-					<div class="col-md-2 ms-5 text-end pt-1">
+					<div class="col text-end pt-1">
 						<a class="nav-item" href="{{ path("favori_index") }}"><i class="fas fa-heart me-2"></i>Favoris</a>
 						<a class="nav-item ms-3" href="{{ path("app_logout") }}">Déconnexion</a>	
 					</div>			
 					{% else %}
-					<div class="col-md-3 ms-5">
+					<div class="col">
 						<button class="btn btn-outline-light">
 						<a href="{{ path("app_login") }}">Se connecter</a>
 						</button>
