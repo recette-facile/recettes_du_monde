@@ -1,38 +1,38 @@
 <header>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container-fluid">
-			<a class="navbar-brand me-3" href="{{ path('home')}}">Délices d'Ailleurs</a>
+			<a class="navbar-brand mx-3" href="{{ path('home')}}">Délices d'Ailleurs</a>
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav d-flex justify-content-end col-12">
 					<li class="nav-item">
-						<a class="nav-link"  href="{{ path('recette_index')}}">Nos Recettes</a>
+						<a class="nav-link"  href="{{ path('recette_index')}}" style="text-transform:uppercase; font-size:1.2rem; font-weight:700; color:#962500;">Nos Recettes</a>
 					</li>
 
 					{% if is_granted("ROLE_ADMIN") %}						
 						<div class="dropdown show" >
-							<a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown" aria-expanded="false">
+							<a class="nav-link dropdown-toggle" style="text-transform:uppercase; font-size:1.2rem; font-weight:700; color:#962500;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown" aria-expanded="false">
 								Gestion recettes
 							</a>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-								<p class="nav-link mb-0">Recettes</p>
+								<p class="nav-link mb-0" style="color:#962500;">Recettes</p>
 									<a class="dropdown-item" href=" {{ path("recette_index") }} ">Liste</a>
 									<a class="dropdown-item" href=" {{ path("recette_new") }} ">Ajouter</a>
 								<hr class="dropdown-divider"></li>
-								<p class="nav-link mb-0">Ingrédients</p>
+								<p class="nav-link mb-0" style="color:#962500;">Ingrédients</p>
 									<a class="dropdown-item" href=" {{ path("ingredient_index") }} ">Liste</a>
 									<a class="dropdown-item" href=" {{ path("ingredient_new") }} ">Ajouter</a>
 								<hr class="dropdown-divider"></li>
-								<p class="nav-link mb-0">Recettes ingrédients</p>
-									<p class="ms-4 text-muted">Liste</p>
-									<p class="ms-4 text-muted">Ajouter</p>
+								<p class="nav-link mb-0" style="color:#962500;">Recettes ingrédients</p>
+									<p class="ms-4 mb-1 text-muted">Liste</p>
+									<p class="ms-4 mt-1 text-muted">Ajouter</p>
 								{# <a href=" {{ path("recette_ingredient_liste_ingredients") }}">Liste</a>
 								<a href=" {{ path("recette_ingredient_new") }}">Ajouter</a> #}
 							</div>
 						</div>
 						{# 
 						<div class="dropdown show" >
-							<a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown" aria-expanded="false">
+							<a class="nav-link dropdown-toggle" style="text-transform:uppercase; font-size:1.2rem; font-weight:700; color:#962500;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown" aria-expanded="false">
 								Ingrédients
 							</a>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -42,7 +42,7 @@
 						</div> #}
 
 						<div class="dropdown show" >
-							<a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown" aria-expanded="false">
+							<a class="nav-link dropdown-toggle" style="text-transform:uppercase; font-size:1.2rem; font-weight:700; color:#962500;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown" aria-expanded="false">
 								Zones géographiques
 							</a>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -51,7 +51,7 @@
 							</div>
 						</div>
 						<div class="dropdown show" >
-							<a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown" aria-expanded="false">
+							<a class="nav-link dropdown-toggle" style="text-transform:uppercase; font-size:1.2rem; font-weight:700; color:#962500;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown" aria-expanded="false">
 								Utilisateurs
 							</a>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -62,7 +62,7 @@
 					{% endif %}
 						{# Fonctionnalités à développer plus tard #}
 						<div class="dropdown show" >
-								<a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown" aria-expanded="false">
+								<a class="nav-link dropdown-toggle" style="text-transform:uppercase; font-size:1.2rem; font-weight:700; color:#962500;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown" aria-expanded="false">
 									Recette par région
 								</a>
 								<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -79,7 +79,7 @@
 						<a class="nav-item ms-3" href="{{ path("app_logout") }}">Déconnexion</a>	
 					</div>			
 					{% else %}
-					<div class="col-md-3">
+					<div class="col-md-3 ms-5">
 						<button class="btn btn-outline-light">
 						<a href="{{ path("app_login") }}">Se connecter</a>
 						</button>
