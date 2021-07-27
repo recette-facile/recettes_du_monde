@@ -24,7 +24,7 @@ class UserType extends AbstractType
                 'attr' => [
                 'placeholder' => "Entrez votre mot de passe"
                 ]
-           ])
+            ])
             ->add('roles', ChoiceType::class, [
             "choices" => [
                 "Utilisateur" => "ROLE_UTILISATEUR",

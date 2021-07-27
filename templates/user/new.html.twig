@@ -1,5 +1,6 @@
 {% extends 'base.html.twig' %}
 
+<<<<<<< HEAD
 {% block title %}Nouvel utilisateur{% endblock %}
 
 {% block body %}
@@ -11,5 +12,17 @@
 </div>
     <a href="{{ path('user_index') }}" class="btn col-3 shadow p-3 mb-5 bg-body rounded rounded-pill">
         <i class="fas fa-angle-double-left"></i>   Retour à la liste des utilisateurs
+=======
+{% block title %}Créer un nouvel utilisateur{% endblock %}
+
+{% block body %}
+<div class="m-4">
+    <h1>Créer un nouvel utilisateur</h1>
+
+    {{ include('user/_form.html.twig') }}
+</div>
+    <a href="{{ path('user_index') }}" class="btn col-3 shadow p-3 mb-5 bg-body rounded rounded-pill">
+        <i class="fas fa-angle-double-left"></i>   Liste des utilisateurs
+>>>>>>> e411c4f7f6901e94540bf259b900204b5b1056f1
     </a>
 {% endblock %}

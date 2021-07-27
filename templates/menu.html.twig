@@ -1,108 +1,96 @@
 <header>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<div class="container-fluid">
-			<a class="navbar-brand mx-2" href="{{ path('home')}}">Délices d'Ailleurs</a>
+			<a class="navbar-brand mx-3" href="{{ path('home')}}">Délices d'Ailleurs</a>
 
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
-				<ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-5 col-12">
+				<ul class="navbar-nav d-flex justify-content-end col-12">
 					<li class="nav-item">
-						<a class="nav-link me-5 " style= "color:black;" href="{{ path('home')}}">Accueil</a>
+						<a class="nav-link"  href="{{ path('recette_index')}}" style="text-transform:uppercase; font-size:1.2rem; font-weight:700; color:#962500;">Nos Recettes</a>
 					</li>
-					
-					
-			
-							
-					{% if is_granted("ROLE_ADMIN") %}
-						
+
+					{% if is_granted("ROLE_ADMIN") %}						
 						<div class="dropdown show" >
-							<a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown" aria-expanded="false">
-									Gestion recettes
+							<a class="nav-link dropdown-toggle" style="text-transform:uppercase; font-size:1.2rem; font-weight:700; color:#962500;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown" aria-expanded="false">
+								Gestion recettes
 							</a>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-								<a class="dropdown-item" href=" {{ path("recette_index") }} ">Liste</a>
-								<a class="dropdown-item" href=" {{ path("recette_new") }} ">Ajouter</a>
+								<p class="nav-link mb-0" style="color:#962500;">Recettes</p>
+									<a class="dropdown-item" href=" {{ path("recette_index") }} ">Liste</a>
+									<a class="dropdown-item" href=" {{ path("recette_new") }} ">Ajouter</a>
+								<hr class="dropdown-divider"></li>
+								<p class="nav-link mb-0" style="color:#962500;">Ingrédients</p>
+									<a class="dropdown-item" href=" {{ path("ingredient_index") }} ">Liste</a>
+									<a class="dropdown-item" href=" {{ path("ingredient_new") }} ">Ajouter</a>
+								<hr class="dropdown-divider"></li>
+								<p class="nav-link mb-0" style="color:#962500;">Recettes ingrédients</p>
+									<p class="ms-4 mb-1 text-muted">Liste</p>
+									<p class="ms-4 mt-1 text-muted">Ajouter</p>
+								{# <a href=" {{ path("recette_ingredient_liste_ingredients") }}">Liste</a>
+								<a href=" {{ path("recette_ingredient_new") }}">Ajouter</a> #}
 							</div>
 						</div>
-
+						{# 
 						<div class="dropdown show" >
-							<a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown" aria-expanded="false">
-									Ingrédients
+							<a class="nav-link dropdown-toggle" style="text-transform:uppercase; font-size:1.2rem; font-weight:700; color:#962500;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown" aria-expanded="false">
+								Ingrédients
 							</a>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 								<a class="dropdown-item" href=" {{ path("ingredient_index") }} ">Liste</a>
 								<a class="dropdown-item" href=" {{ path("recette_new") }} ">Ajouter</a>
 							</div>
-						</div>
+						</div> #}
 
 						<div class="dropdown show" >
-							<a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown" aria-expanded="false">
-									Zones géographiques
+							<a class="nav-link dropdown-toggle" style="text-transform:uppercase; font-size:1.2rem; font-weight:700; color:#962500;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown" aria-expanded="false">
+								Zones géographiques
 							</a>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 								<a class="dropdown-item" href=" {{ path("zone_geo_index") }} ">Liste</a>
 								<a class="dropdown-item" href=" {{ path("zone_geo_new") }} ">Ajouter</a>
 							</div>
-
-
-							
 						</div>
-
 						<div class="dropdown show" >
-							<a class="nav-link dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown" aria-expanded="false">
-									Utilisateurs
+							<a class="nav-link dropdown-toggle" style="text-transform:uppercase; font-size:1.2rem; font-weight:700; color:#962500;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown" aria-expanded="false">
+								Utilisateurs
 							</a>
 							<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 								<a class="dropdown-item" href=" {{ path("user_index") }} ">Liste</a>
 								<a class="dropdown-item" href=" {{ path("user_new") }} ">Ajouter</a>
 							</div>
-						</div>
-
-
-
-
-						
+						</div>						
 					{% endif %}
-
-					{# Fonctionnalités à développer plus tard #}
-					<li class="nav-item dropdown" >
-						<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style= "color:black;" >
-						Recette par région
-						</a>
-						<ul class="dropdown-menu" aria-labelledby="navbarDropdown">
-							<li><a class="dropdown-item" href="#">Afrique de l'Ouest</a></li>
-							<li><a class="dropdown-item" href="#">Afrique de l'Est</a></li>
-							<li><a class="dropdown-item" href="#">Maghreb</a></li>
-							<li><a class="dropdown-item" href="#">Moyen-Orient</a></li>
-						</ul>
-					</li>
-			
+						{# Fonctionnalités à développer plus tard #}
+						<div class="dropdown show" >
+								<a class="nav-link dropdown-toggle" style="text-transform:uppercase; font-size:1.2rem; font-weight:700; color:#962500;" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" data-bs-toggle="dropdown" aria-expanded="false">
+									Recette par région
+								</a>
+								<div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+									<a class="dropdown-item" href="#">Afrique de l'Ouest</a>
+									<a class="dropdown-item" href="#">Afrique de l'Est</a>
+									<a class="dropdown-item" href="#">Maghreb</a>
+									<a class="dropdown-item" href="#">Moyen-Orient</a>					
+								</div>
+						</div>					
+					{% if is_granted("IS_AUTHENTICATED_FULLY") %}
+					{# si l'utilisateur est connecté, on lui affiche ce qui suit! #}
+					<div class="col-md-2 ms-5 text-end pt-1">
+						<a class="nav-item" href="{{ path("favori_index") }}"><i class="fas fa-heart me-2"></i>Favoris</a>
+						<a class="nav-item ms-3" href="{{ path("app_logout") }}">Déconnexion</a>	
+					</div>			
+					{% else %}
+					<div class="col-md-3 ms-5">
+						<button class="btn btn-outline-light">
+						<a href="{{ path("app_login") }}">Se connecter</a>
+						</button>
+						<button type="button" class="btn btn-primary">
+							<a href="{{ path("user_new")}}">S'inscrire</a>
+						</button>					
+					</div>
+					{% endif %}
 				</ul>
-			</div>
+			</div>			
 
-			
-
-			{% if is_granted("IS_AUTHENTICATED_FULLY") %}
-			{# si l'utilisateur est connecté, on lui affiche ce qui suit! #}
-			<ul class='navbar-nav'>
-				<div class="col text-end">
-					<li class="nav-item ms-5">
-						<a class="nav-link" style= "color:black;"  href="{{ path("favori_index") }}"><i class="fas fa-heart me-3"></i>Favoris</a>
-					</li>
-					<li class="nav-item last">
-						<a class="nav-link logout " href="{{ path("app_logout") }}">Déconnexion</a>					
-					</li>
-				</div>			
-			{% else %}
-				<div class="col text-end">
-					<button class="btn btn-outline-light">
-					<a href="{{ path("app_login") }}">Se connecter</a>
-					</button>
-					<button type="button" class="btn btn-primary">
-						<a href="{{ path("user_new")}}">S'inscrire</a>
-					</button>					
-				</div>
-			</ul>
-			{% endif %}
 		</div>
 	</nav>
 

@@ -47,7 +47,7 @@
         <i class="fas fa-angle-double-left"></i>   Retour à la liste des recettes
     </a>
     {% if is_granted("ROLE_ADMIN") %}
-            <a href="{{ path('recette_new')}}" class="redirection_link">
+            <a href="{{ path('recette_new')}}" class="redirection_link m-4">
                 <i class="far fa-plus-square"></i>    Créer une nouvelle Recette
             </a>                            
         {% endif %}              

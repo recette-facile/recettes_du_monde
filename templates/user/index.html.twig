@@ -6,9 +6,16 @@
 <div class="m-4">
     <h1>Liste des utilisateurs</h1>
 
+<<<<<<< HEAD
     <table class="table table-striped">
         <thead>
             <tr>
+=======
+    <table class="table table-striped mt-5">
+        <thead>
+            <tr>
+                <th>Pseudo</th>
+>>>>>>> e411c4f7f6901e94540bf259b900204b5b1056f1
                 <th>Nom</th>
                 <th>Prenom</th>
                 <th>Pseudo</th>
@@ -20,26 +27,42 @@
         <tbody>
         {% for user in users %}
             <tr>
+<<<<<<< HEAD
+=======
+                <td>{{ user.pseudo }}</td>
+>>>>>>> e411c4f7f6901e94540bf259b900204b5b1056f1
                 <td>{{ user.nom }}</td>
                 <td>{{ user.prenom }}</td>
                 <td>{{ user.pseudo }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
                 <td>
+<<<<<<< HEAD
                     <a href="{{ path('user_show', {'id': user.id}) }}" class="me-4"><i class="far fa-eye"></i>   Consulter</a>
                         <a href="{{ path('user_edit', {'id': user.id}) }}" class="ms-4"><i class="far fa-edit"></i>   Modifier</a>
+=======
+                    <a href="{{ path('user_show', {'id': user.id}) }}"class="me-4"><i class="far fa-eye"></i>   Consulter</a>
+                    <a href="{{ path('user_edit', {'id': user.id}) }}"class="ms-4"><i class="far fa-edit"></i>   Modifier</a>
+>>>>>>> e411c4f7f6901e94540bf259b900204b5b1056f1
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="8">no records found</td>
+                <td colspan="8">Liste vide</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
+</div>
+    <a href="{{ path('user_new')}}" class="redirection_link my-5">
+        <i class="far fa-plus-square"></i>    Créer un nouvel utilisateur
+    </a> 
 
+<<<<<<< HEAD
     <a href="{{ path('user_new')}}" class="redirection_link">
         <i class="far fa-plus-square"></i>     Créer un nouvel utilisateur
     </a>    
 </div>
+=======
+>>>>>>> e411c4f7f6901e94540bf259b900204b5b1056f1
 {% endblock %}

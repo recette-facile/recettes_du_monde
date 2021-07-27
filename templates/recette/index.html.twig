@@ -3,10 +3,11 @@
 {% block title %}Délices d'Ailleurs | Nos Recettes{% endblock %}
 
 {% block body %}
-    <h1>Nos Recettes</h1>       
+
+    <h1 class="mt-5 mb-4" >Nos Recettes</h1>       
            
         {% for recette in recettes %}
-        <div class="card col-4 m-4 p-0 shadow bg-body rounded border-0">
+        <div class="card col-4 m-4 p-0 shadow bg-body border-0" style="border-radius=30px;">
             <h3 class="text-center m-4">{{recette.nomRecette}}</h3>
 			<div class="image">
 			    <img src="/{{recette.image}}" class="card-img-top" alt="photo de {{recette.nomRecette}}">
@@ -15,50 +16,42 @@
 				<p>{{ recette.descriptionRecette|slice(0,160) }}...</p>
 			</div>
 
-			<div class="card-footer">   
+			<div class="card-footer border-0" style="background-color:#fff;">   
                 <div class="row">
-                    <div class="btn-group col-6">
-                        <button type="button" class="btn btn-sm btn-outline-ligth">
-                            <a href="{{ path('recette_show', {'id': recette.id}) }}">
+                    <div class="btn-group col">
+                        <button type="button" class="btn btn-sm btn-outline-ligth" style="outline:none; border:none;">
+                            <a href="{{ path('recette_show', {'id': recette.id}) }}" class="redirection_link" style="font-size:1.2rem;">
                                 <i class="fas fa-eye"></i>    Voir plus
                             </a>
                         </button>
                         {% if is_granted("ROLE_ADMIN") %}
                             {# si Admin est connecté, on lui affiche ce qui suit! #}
-                            <button type="button" class="btn btn-sm btn-outline-light">
-                                <a href="{{ path('recette_edit', {'id': recette.id}) }}">
+                            <button type="button" class="btn btn-sm btn-outline-light" style="outline:none; border:none;">
+                                <a href="{{ path('recette_edit', {'id': recette.id}) }}" class="redirection_link">
                                     <i class="fas fa-edit"></i>    Modifier
                                 </a>
                             </button>
                         {% endif %}
+                        {% if is_granted("ROLE_USER") %}
+                            <button type="button" class="btn btn-sm btn-outline-light" style="outline:none; border:none;"> 
+                                <a href="{{path('favori_ajout', {id:recette.id})}}" class="redirection_link">
+                                    <i class="fas fa-heart" style="font-size:1.4rem;"></i>
+                                </a> 
+                            </button>
+                        {% endif %}
                     </div>
-                </div>          
-
-                <div class="btn-group">
-
-
-                {% if is_granted("ROLE_USER") %}
-                    <button> 
-                        <a href="{{path('favori_ajout', {id:recette.id})}}">
-                            <i class="fas fa-heart"></i>
-                        </a> 
-                    </button>
-                {% endif %}
-                
-
                 </div>
             </div>
         </div>
         {% else %}
             <tr>
-                <td colspan="6">Aucun enregistrement trouvé</td>
+                <td colspan="6">Liste vide</td>
             </tr>
         {% endfor %}
 
         {% if is_granted("ROLE_ADMIN") %}
-            <a href="{{ path('recette_new')}}" class="redirection_link">
-                <i class="far fa-plus-square"></i>    Créer une nouvelle Recette
+            <a href="{{ path('recette_new')}}" class="redirection_link mb-5 bt-4">
+                <i class="far fa-plus-square"></i>    Créer une nouvelle recette
             </a>                            
-        {% endif %}
-        
+        {% endif %}        
 {% endblock %}

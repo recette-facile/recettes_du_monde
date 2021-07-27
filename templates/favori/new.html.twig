@@ -1,11 +1,14 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Nouveau Favori{% endblock %}
+{% block title %}Créer un nouveau favori{% endblock %}
 
 {% block body %}
-    <h1>Créer un nouveau Favori</h1>
+<div class="m-4">   
+    <h1>Créer un nouveau favori</h1>
 
     {{ include('favori/_form.html.twig') }}
-
-    <a href="{{ path('favori_index') }}">Retour à la liste</a>
+</div>
+    <a href="{{ path('favori_index') }}" class="btn col-3 shadow p-3 mb-5 bg-body rounded rounded-pill">
+        <i class="fas fa-angle-double-left"></i>   Liste des favoris
+    </a>
 {% endblock %}
