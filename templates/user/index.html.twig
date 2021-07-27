@@ -6,12 +6,19 @@
 <div class="m-4">
     <h1>Liste des utilisateurs</h1>
 
+<<<<<<< HEAD
     <table class="table table-striped mt-5">
         <thead>
             <tr>
                 <th>Pseudo</th>
+=======
+    <table class="table table-striped">
+        <thead>
+            <tr>
+>>>>>>> master
                 <th>Nom</th>
                 <th>Prenom</th>
+                <th>Pseudo</th>
                 <th>Email</th>
                 <th>Roles</th>
                 <th>Actions</th>
@@ -20,14 +27,23 @@
         <tbody>
         {% for user in users %}
             <tr>
+<<<<<<< HEAD
                 <td>{{ user.pseudo }}</td>
+=======
+>>>>>>> master
                 <td>{{ user.nom }}</td>
                 <td>{{ user.prenom }}</td>
+                <td>{{ user.pseudo }}</td>
                 <td>{{ user.email }}</td>
                 <td>{{ user.roles ? user.roles|json_encode : '' }}</td>
                 <td>
+<<<<<<< HEAD
                     <a href="{{ path('user_show', {'id': user.id}) }}"class="me-4"><i class="far fa-eye"></i>   Consulter</a>
                     <a href="{{ path('user_edit', {'id': user.id}) }}"class="ms-4"><i class="far fa-edit"></i>   Modifier</a>
+=======
+                    <a href="{{ path('user_show', {'id': user.id}) }}" class="me-4"><i class="far fa-eye"></i>   Consulter</a>
+                        <a href="{{ path('user_edit', {'id': user.id}) }}" class="ms-4"><i class="far fa-edit"></i>   Modifier</a>
+>>>>>>> master
                 </td>
             </tr>
         {% else %}
@@ -42,4 +58,11 @@
         <i class="far fa-plus-square"></i>    Créer un nouvel utilisateur
     </a> 
 
+<<<<<<< HEAD
+=======
+    <a href="{{ path('user_new')}}" class="redirection_link">
+        <i class="far fa-plus-square"></i>     Créer un nouvel utilisateur
+    </a>    
+</div>
+>>>>>>> master
 {% endblock %}
