@@ -1,15 +1,16 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}RecetteIngredient index{% endblock %}
+{% block title %}Ingrédient(s) d'une recette{% endblock %}
 
 {% block body %}
-    <h1>RecetteIngredient index</h1>
+<div class="m-4">
+    <h1>Ingrédient(s) d'une recette</h1>
 
-    <table class="table">
+    <table class="table table-striped">
         <thead>
             <tr>
-                <th>Id</th>
-                <th>actions</th>
+                <th>#</th>
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -17,8 +18,8 @@
             <tr>
                 <td>{{ recette_ingredient.id }}</td>
                 <td>
-                    <a href="{{ path('recette_ingredient_show', {'id': recette_ingredient.id}) }}">Voir plus</a>
-                    <a href="{{ path('recette_ingredient_edit', {'id': recette_ingredient.id}) }}">Mettre à jour</a>
+                    <a href="{{ path('recette_ingredient_show', {'id': recette_ingredient.id}) }}"class="me-4"><i class="far fa-eye"></i>   Consulter</a>
+                    <a href="{{ path('recette_ingredient_edit', {'id': recette_ingredient.id}) }}"class="ms-4"><i class="far fa-edit"></i>   Modifier</a>
                 </td>
             </tr>
         {% else %}
@@ -28,6 +29,8 @@
         {% endfor %}
         </tbody>
     </table>
-
-    <a href="{{ path('recette_ingredient_new') }}">Ajouter un ingrédient à une recette</a>
+</div>
+    <a href="{{ path('recette_ingredient_new')}}" class="redirection_link m-4">
+        <i class="far fa-plus-square"></i>    Ajouter un ingrédient à une recette
+    </a>                      
 {% endblock %}

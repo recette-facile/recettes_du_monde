@@ -5,9 +5,6 @@ html,
 body {
   font-family: "Poppins", "Sans-Serif", "Arial";
 }
-.redirection_link{
-  text-decoration: none;
-}
 /*********HEADER*********/
 header {
   background-color: #e4d1cb;
@@ -24,7 +21,7 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light {
 .navbar-light .navbar-brand {
   color: #962500;
   font-family: 'Dr Sugiyama', 'cursive';
-  font-size: 2.5rem;
+  font-size: 2.6rem;
 }
 .navbar-light .navbar-brand:hover, 
 .navbar-light .navbar-brand:active, 
@@ -32,12 +29,6 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light {
   border: none; 
   outline: none; 
   color: #962500;
-}
-
-.navbar-expand-lg .navbar-nav {
-  font-weight: 700;
-  text-transform: uppercase;
-  font-size: 1.2rem;
 }
 
 .navbar-light .navbar-nav .nav-linklight {
@@ -77,8 +68,10 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light {
   color: #962500;
   justify-content: center;
 }
-.last a.nav-link.logout{
+.text-end a{
  color: #962500;
+ font-size: 1.2rem;
+ text-decoration: none;
 }
 /* barre de recherche */
 .btn-outline-success {
@@ -101,9 +94,40 @@ nav.navbar.navbar-expand-lg.navbar-light.bg-light {
   object-fit: cover;
 }
 
+/*********BUTTONS  & LINKS*********/
+
+button i.far.fa-trash-alt{
+  font-size:1.4rem;
+  margin: 2px 10px 0 0;
+}
+.actions-table .me-4,
+.actions-table .ms-4{
+  text-decoration: none;
+  color: #962500;
+}
+a.redirection_link,
+a.me-4,
+a.ms-4{
+  font-size: 1.2rem!important;
+  text-decoration: none;
+  color: #962500;
+}
+a.redirection_link > i,
+a.me-4 > i,
+a.ms-4 > i{
+  font-size: 1.2rem;
+  color: #962500;
+  margin-right:10px;
+}
+h1{
+  color:green;
+}
+/*********CARDS*********/
+
 /*********FOOTER*********/
 .bg-white {
-  background-color: #e6b7a7!important;
+  box-shadow: rgba(136, 165, 191, 0.48) 6px 2px 16px 0px, rgba(255, 255, 255, 0.8) -6px -2px 16px 0px;
+  background-color:#e4d1cb!important;
 }
 .text-footer {
   text-decoration: none;
@@ -118,13 +142,12 @@ footer .text-uppercase {
   font-size: 1.5rem;
   font-weight: 600;
 }
-.bg-light.py-2{
-  background-color: #e6b7a7c2!important;
-  color: #962500;
-  font-style: italic;
+.bg-light{
+  background-color:#e4d1cb!important;
+  padding-bottom: 10px;
 }
 footer .fab, .far{
-  font-size: 2.3rem;
+  font-size: 1.8rem;
   color:#962500;
 }
 footer .list-inline-item{
