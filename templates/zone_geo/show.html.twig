@@ -4,7 +4,8 @@
 
 {% block body %}
 <div class="m-4">
-    <h1>Zone : {{ zone_geo.nom }}</h1>
+
+    <h1 class="my-4">Zone : {{ zone_geo.nom }}</h1>
 
     <table class="table table-striped my-4">
         <tbody>
@@ -19,7 +20,7 @@
             <tr>
                 <th>Modifier</th>
                 <td>
-                    <a href="{{ path('zone_geo_edit', {'id': zone_geo.id}) }}"><i class="far fa-edit"></i>    Modifier</a>
+                    <a href="{{ path('zone_geo_edit', {'id': zone_geo.id}) }}"class="redirection_link"><i class="far fa-edit"></i>    Modifier</a>
                 </td>
             </tr>
             <tr>
@@ -34,7 +35,7 @@
 </div>
 
     <a href="{{ path('zone_geo_index') }}" 
-        class="btn col-3 shadow p-3 mb-5 bg-body rounded rounded-pill">
+        class="btn col-3 shadow p-3 mb-5 bg-body rounded rounded-pill my-5">
         <i class="fas fa-angle-double-left"></i>   Retour à la liste des zones
     </a>
 

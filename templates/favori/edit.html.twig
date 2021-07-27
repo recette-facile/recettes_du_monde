@@ -1,13 +1,15 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Favoris{% endblock %}
+{% block title %}Modifier les favoris{% endblock %}
 
 {% block body %}
-    <h1>Mise à jour des Favoris</h1>
+<div class="m-4">
+    <h1>Modifier les favoris</h1>
 
     {{ include('favori/_form.html.twig', {'button_label': 'Mettre à jour'}) }}
-
-    <a href="{{ path('favori_index') }}">Retour à la liste</a>
-
     {{ include('favori/_delete_form.html.twig') }}
+</div>
+    <a href="{{ path('favori_index') }}" class="btn col-3 shadow p-3 mb-5 bg-body rounded rounded-pill">
+        <i class="fas fa-angle-double-left"></i>   Liste des ingrédients
+    </a>
 {% endblock %}
